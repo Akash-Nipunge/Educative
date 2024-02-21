@@ -1,6 +1,6 @@
 import asyncHandler from 'express-async-handler'
-import { StudentData } from '../model/student.model.js';
-export const searchStudents = asyncHandler(async (req, res) => {
+import {teacherData} from '../../../model/teacher.model.js'
+export const searchTeacher = asyncHandler(async (req, res) => {
     try {
       const keyword = req.query.query
         ? {
@@ -10,12 +10,12 @@ export const searchStudents = asyncHandler(async (req, res) => {
             ],
           }
         : {};
-      const users = await StudentData.find(keyword);
+      const users = await teacherData.find(keyword);
 
       res.send(users);
     } catch (error) {
       res.status(400).json({
-        message: "No student Found!",
+        message: "No Teacher Found!",
       });
     }
   });

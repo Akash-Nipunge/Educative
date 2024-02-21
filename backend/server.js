@@ -45,9 +45,11 @@ app.post(
 // Define routes with Router
 import {studentRouter} from './router/student.router.js'
 import { teacherRouter } from './router/teacher.router.js';
+import {adminRouter} from './router/admin.router.js'
 import { classRouter } from './router/class.router.js';
 import { subjectRouter } from './router/subject.router.js';
 import {unitRouter} from './router/unit.router..js'
+
 
 
 app.use("/api/v1/user/student", studentRouter);
@@ -57,6 +59,7 @@ app.use("/api/v1/class/subject", subjectRouter);
 app.use("/api/v1/class/subject/unit", unitRouter);
 app.use("/api/v1/class/subject/unit/content/file", fileRouter);
 app.use("/api/v1/class/result", resultRouter);
+app.use("/api/v1/admin",adminRouter);
 
 app.get("/api/v1", (req, res) => {
   console.log("App is running fine!!");
