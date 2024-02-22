@@ -22,8 +22,8 @@ const teacherSchema = mongoose.Schema({
     },
     degree: {
       type: String,
-      require: true,
       trim: true,
+      require:true,
       lowercase: true,
       maxLength: 30,
       minLength: 3,
