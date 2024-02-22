@@ -15,13 +15,13 @@ export default function ViewResult(){
                 console.log("err")
             })
         })();
-        (async ()=>{
-            await axios.get(`http://localhost:4000/api/v1/class/result/get?query=${studentId}`).then((data)=>{
-                setStudent(data.data.student)
-            }).catch((err)=>{
-                console.log("err")
-            })
-        })();
+        // (async ()=>{
+        //     await axios.get(`http://localhost:4000/api/v1/class/result/get?query=${studentId}`).then((data)=>{
+        //         setStudent(data.data.student)
+        //     }).catch((err)=>{
+        //         console.log("err")
+        //     })
+        // })();
     },[]);
     return (
         <>
