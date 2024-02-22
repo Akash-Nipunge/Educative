@@ -1,15 +1,12 @@
+import { Result } from "../../model/result.model.js";
 import { StudentData } from "../../model/student.model.js";
 export const searchResultByStudent = async (req, res) => {
   const studentId = req.query.query;
-  if (!studentId) {
-    return res.status(400).send({
-      success: false,
-      message: "Student Id Not Found",
-    });
-  }
-
+  console.log(studentId)
   try {
-    const student = await StudentData.findById(studentId).populate("result");
+    const data = await StudentData.findOne({_id:studentId});
+    const student = await Result.findOne({_id:data.result})
+    console.log("student : ",student)
     if (!student) {
       return res.status(404).send({
         message: "Student Not Found",
@@ -18,7 +15,7 @@ export const searchResultByStudent = async (req, res) => {
     }
     res.status(200).send({
       success: true,
-      student,
+      student
     });
   } catch (error) {
     console.log("Error", error);

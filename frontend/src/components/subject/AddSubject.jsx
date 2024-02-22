@@ -35,14 +35,14 @@ export default function AddSubject({topPosition,setTopPosition,setRefresh}) {
         }, 1500);
       })
     })();
-    setTopPosition("-200%")
+    setTopPosition((curr)=>!curr)
   }
   return (
     <>
       {responseBox && <CustomDialog message={responseBox}/>}
-      {loading ? <CustomSpinner/> :  <div className="absolute w-full z-50 bg-black text-gray-500 h-screen bg-opacity-70" style={{top:topPosition}}>
-      <div className="m-auto w-1/3 mt-12 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-200 p-2 rounded-lg max-sm:w-full max-sm:absolute">
-        <div className="text-black text-2xl text-end mb-4 cursor-pointer" onClick={()=>setTopPosition("-200%")}>X</div>
+      {loading ? <CustomSpinner/> :  <div className={`absolute w-full z-50 bg-white text-gray-500 h-screen ${topPosition ? "" : "hidden"}`}>
+      <div className="m-auto w-1/3 mt-12 bg-white p-2 rounded-lg max-sm:w-full max-sm:absolute">
+        <div className="text-black text-2xl text-end mb-4 cursor-pointer" onClick={()=>setTopPosition((curr)=>!curr)}>X</div>
         <form
           onSubmit={(e) => handleSubmit(e)}
           className="flex flex-col max-md:w-2/3 max-md:m-auto max-md:p-4 max-md:rounded-lg max-md:m-50px max-sm:w-10/12"
@@ -52,14 +52,14 @@ export default function AddSubject({topPosition,setTopPosition,setRefresh}) {
             placeholder="Subject Name"
             required
             value={subject}
-            className="mt-1 block w-full px-3 py-2 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+            className="mt-1 block w-full px-3 py-4 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
     focus:outline-none focus:border-orange-400  focus:ring-1 focus:orange-500"
             onChange={(e) => setSubject(e.target.value)}
           />
           <button
             type="submit"
             onClick={(e)=>handleAddSubjectSubmit(e)}
-            className="mt-6 px-4 py-2 text-sm font-medium text-white bg-teal-500 rounded-lg hover:bg-teal-600 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+            className="mt-6 px-4 py-4 text-sm font-medium text-white bg-violet-500 rounded-lg hover:bg-violet-600"
           >
             Submit
           </button>

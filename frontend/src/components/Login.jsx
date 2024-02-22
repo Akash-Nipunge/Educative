@@ -55,7 +55,7 @@ export default function Login() {
         <img src={studetnLoginImage} alt="" width="90%" />
       </div>
       <div className="max-lg:w-1/2 max-sm:w-4/5 h-fit my-auto w-1/3 max-sm:m-auto">
-        <form onSubmit={(e) => HandleSubmit(e)}>
+        <form onSubmit={(e) => HandleSubmit(e)} className="flex flex-col">
           <input
             type="email"
             placeholder="Email"
@@ -77,15 +77,10 @@ export default function Login() {
           />
           <button
             type="submit"
-            className="mt-1 block w-3/4 px-3 py-4 border border-violet-900 rounded-md text-sm shadow-sm  text-white bg-violet-900 hover:bg-violet-950"
+            className="mt-1 w-1/3 px-3 py-4 border border-violet-900 rounded-md text-sm shadow-sm  text-white bg-violet-900 hover:bg-violet-950 self-end"
           >
             Login
           </button>
-          <Link to="/">
-            <div className="text-end my-1 text-indigo-400 max-sm:text-sm">
-              Forgot password?
-            </div>
-          </Link>
         </form>
       </div>
       <div className="w-full bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-200 absolute z-50 h-full bg-opacity-70" style={{top:error?'0%':'-200%'}}>

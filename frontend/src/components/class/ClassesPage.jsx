@@ -11,7 +11,7 @@ export default function ClassesPage() {
   const [classCode, setClassCode] = useState("");
   const [classTeacher, setClassTeacher] = useState("");
   const [classData, setClassData] = useState([]);
-  const [AddClassDialog, setAddClassDialog] = useState("-200%");
+  const [AddClassDialog, setAddClassDialog] = useState(false);
   const [loading, setLoading] = useState(false);
   const [responseBox,setResponseBox] = useState("");
   const {user} = useParams()
@@ -54,7 +54,7 @@ export default function ClassesPage() {
         }
       )
       .then((res) => {
-        setAddClassDialog((curr)=>"-200%")
+        setAddClassDialog((curr)=>!curr)
         setLoading(false);
         console.log(res.data.message)
         setResponseBox((curr)=>res.data.message);
@@ -63,7 +63,7 @@ export default function ClassesPage() {
         }, 1500);
       })
       .catch((err) => {
-        setAddClassDialog((curr)=>"-200%")
+        setAddClassDialog((curr)=>!curr)
         setLoading(false);
         setResponseBox((curr)=>err.response.data.message);
         setTimeout(() => {
@@ -73,7 +73,7 @@ export default function ClassesPage() {
   };
 
   function HandleAddClass() {
-    setAddClassDialog("0");
+    setAddClassDialog((curr)=>!curr);
   }
 
   return (
@@ -85,7 +85,7 @@ export default function ClassesPage() {
         <>
           {user === "teacher" && (
             <button
-              className="bg-blue-400 py-2 rounded-md mx-4 px-4 mt-2 hidden max-md:block"
+              className="bg-violet-400 py-4 rounded-md mx-4 px-4 mt-2 hidden max-md:block"
               onClick={HandleAddClass}
             >
               Add Class
@@ -116,8 +116,7 @@ export default function ClassesPage() {
 
             {user == "teacher" && (
               <div
-                className="w-1/3 p-4 rounded-lg mx-auto max-md:absolute max-md:h-screen max-md:bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-200 max-md:w-full max-md:z-50"
-                style={{ top: AddClassDialog }}
+                className={`w-1/3 p-4 rounded-lg mx-auto max-md:absolute max-md:h-screen bg-white max-md:w-full max-md:z-50 max-sm:${AddClassDialog ? "hidden" : "block"}`}
               >
                 <form
                   onSubmit={(e) => handleSubmit(e)}
@@ -130,7 +129,7 @@ export default function ClassesPage() {
                     X
                   </div>
                   <button
-                    className="bg-teal-500 p-2 w-full rounded-md text-white"
+                    className="py-4 w-full rounded-md text-black border-x border-y border-violet-300 cursor-text"
                     onClick={(e) => e.preventDefault()}
                   >
                     Add Class Here!
@@ -142,7 +141,7 @@ export default function ClassesPage() {
                       autoFocus
                       value={className}
                       required
-                      className="mt-1 block w-full px-3 py-2 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                      className="mt-1 block w-full px-3 py-4 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
     focus:outline-none focus:border-blue-400  focus:ring-1 focus:blue-500"
                       onChange={(e) => setClassName(e.target.value)}
                     >
@@ -153,15 +152,23 @@ export default function ClassesPage() {
                         </option>
                       ))}
                     </select>
-                    <input
-                      type="text"
-                      placeholder="class code"
+                    <select
+                      type="number"
+                      placeholder="className"
+                      autoFocus
                       value={classCode}
                       required
-                      className="mt-1 block w-full px-3 py-2 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                      className="mt-1 block w-full px-3 py-4 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
     focus:outline-none focus:border-blue-400  focus:ring-1 focus:blue-500"
                       onChange={(e) => setClassCode(e.target.value)}
-                    />
+                    >
+                      <option value="0">Select class</option>
+                      {classList.classIds.map((classItem, index) => (
+                        <option value={classItem} key={index}>
+                          class {classItem}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div>
                     <input
@@ -169,14 +176,14 @@ export default function ClassesPage() {
                       placeholder="class teacher name"
                       value={classTeacher}
                       required
-                      className="mt-1 block w-full px-3 py-2 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                      className="mt-1 block w-full px-3 py-4 bg-transparent border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
     focus:outline-none focus:border-blue-400  focus:ring-1 focus:blue-500"
                       onChange={(e) => setClassTeacher(e.target.value)}
                     />
                   </div>
                   <button
                     type="submit"
-                    className="mt-6 px-4 py-2 text-sm font-medium text-white rounded-lg focus:ring-4 focus:ring-blue-300 focus:outline-none bg-gradient-to-r from-green-400 to-blue-500 hover:from-teal-500 hover:to-teal-500"
+                    className="mt-6 px-4 py-4 text-sm font-medium text-white rounded-lg bg-violet-600"
                   >
                     Submit
                   </button>

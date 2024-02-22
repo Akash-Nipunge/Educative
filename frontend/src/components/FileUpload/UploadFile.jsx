@@ -2,23 +2,27 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ViewFilesInFolder from "./ViewFile";
+import CustomSpinner from '../CustomSpinner.jsx'
 // import classNames from "classnames";
 
 const FileUpload = () => {
   const [file, setFile] = useState(null);
-  const[contentTitle, setContentTitle] = useState('');
+  const [contentTitle, setContentTitle] = useState("");
   const { unitId } = useParams();
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
+    const filename = e.target.value.split("\\");
+    setContentTitle(filename[filename.length - 1]);
   };
 
   const handleUpload = async () => {
     if (!file) return;
-
+    setLoading(true)
     const formData = new FormData();
     formData.append("file", file);
-    formData.append('contentTitle',contentTitle);
+    formData.append("contentTitle", contentTitle);
 
     try {
       const response = await axios.post(
@@ -30,37 +34,47 @@ const FileUpload = () => {
           },
         }
       );
+      setLoading(false)
       console.log("File uploaded successfully:", response.data);
     } catch (error) {
+      setLoading(false);
       console.error("Error uploading file:", error);
     }
   };
 
   return (
     <>
-   <div className="flex flex-col">
-    <div className="md:w-1/3rounded-md overflow-hidden mx-4 my-2 w-1/3">
-        <input
-          type="text"
-          id="Heading"
-          value={contentTitle}
-          onChange={(e) => setContentTitle(e.target.value)}
-          placeholder="Enter a title for your file..."
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-        />
-    </div>
-  
-    <div className="flex gap-2 mx-4">
-        <input type="file" className="hidden" id="fileInput" onChange={handleFileChange} />
-        <label htmlFor="fileInput" className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded-md transition duration-300 ease-in-out">Choose File</label>
-        <button className="bg-green-500 hover:bg-green-600 text-white py-1 px-4 rounded-md transition duration-300 ease-in-out" onClick={handleUpload}>Upload</button>
-    </div>
-</div>
-
-
-<ViewFilesInFolder/>
-  
-</>
+      {loading ? (
+        <CustomSpinner />
+      ) : (
+        <>
+          <div className="flex flex-col mt-2">
+            <div className="p-4 text-gray-500 text-xl">{contentTitle}</div>
+            <div className="flex gap-2 mx-4">
+              <input
+                type="file"
+                className="hidden"
+                id="fileInput"
+                onChange={(e) => handleFileChange(e)}
+              />
+              <label
+                htmlFor="fileInput"
+                className="cursor-pointer bg-violet-500 text-white p-4 rounded-xl transition duration-300 ease-in-out"
+              >
+                Choose File
+              </label>
+              <button
+                className="bg-violet-500 text-white py-1 px-4 rounded-xl transition duration-300 ease-in-out"
+                onClick={handleUpload}
+              >
+                Upload
+              </button>
+            </div>
+          </div>
+          <ViewFilesInFolder />
+        </>
+      )}
+    </>
   );
 };
 

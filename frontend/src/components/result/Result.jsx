@@ -11,17 +11,18 @@ const ResultSection = () => {
   const [totalScore, setTotalScore] = useState(0);
   const [passOrFail, setPassOrFail] = useState("");
 
-  const [student, setStudent] = useState({});
+  const [student, setStudent] = useState("");
   const { studentId } = useParams();
 
   useEffect(() => {
     const fetchStudent = async () => {
       try {
-        const { data } = await axios.get(
+        await axios.get(
           `http://localhost:4000/api/v1/class/result/get?query=${studentId}`
-        );
-        console.log(data)
-        setStudent(data.student);
+        ).then((data)=>{
+          setStudent(data.data.student)
+        })
+        // setStudent(data.student);
       } catch (error) {
         console.log("Error :", error.message);
       }
@@ -91,17 +92,16 @@ const ResultSection = () => {
 
   return (
     <>
-      <StudentDetails student={student} />
+      {student ? <StudentDetails student={student} /> : <></>}
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">Teacher Result Template</h1>
         <div className="overflow-x-auto">
-          <table className="w-full mb-8 shadow-md rounded-lg">
+          <table className="w-full mb-8 shadow-md rounded-lg ">
             <thead>
               <tr>
-                <th className="py-2 text-center">Sr. No.</th>
-                <th className="py-2 text-center">Subject Name</th>
-                <th className="py-2 text-center">Obtained</th>
-                <th className="py-2 text-center">Total Marks</th>
+                <th className="py-2 text-center font-normal">Sr. No.</th>
+                <th className="py-2 text-center font-normal">Subject Name</th>
+                <th className="py-2 text-center font-normal">Obtained</th>
+                <th className="py-2 text-center font-normal">Total Marks</th>
               </tr>
             </thead>
             <tbody>
@@ -155,7 +155,7 @@ const ResultSection = () => {
             </tbody>
           </table>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center flex-wrap">
           <button
             className="bg-blue-500 text-white py-2 px-4 rounded shadow-md mr-2"
             onClick={handleAddSubject}

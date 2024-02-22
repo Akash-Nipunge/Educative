@@ -6,7 +6,7 @@ export default function Layout(){
         <div className="flex flex-col relative bg-white">
         <Header/>
         <Outlet/>
-        <Footer/>
+        {/* <Footer/> */}
         </div>
     )
 }

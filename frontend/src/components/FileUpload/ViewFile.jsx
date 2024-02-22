@@ -25,25 +25,24 @@ const ViewFilesInFolder = () => {
 
 
     return (
-        <div className="w-full">
+        <div className="w-full p-4">
             {files.length > 0 ? (
                 <div>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-4 max-sm:grid-cols-1">
                         {files.map(file => (
-                            <div key={file.id} className="rounded-md p-4">
-                                <div className=" text-gray-600 text-xl">{file.name}</div>
-                                <small className="text-gray-700">File ID: {file.id}</small><br/>
+                            <div key={file.id} className="rounded-md p-4 bg-black bg-opacity-10 h-40 relative shadow-lg">
+                                <marquee className=" text-gray-600 text-xl overflow-scroll">{file.name}</marquee>
                                 <small className="text-gray-700">File Type: {file.mimeType}</small>
-                                <div className="mt-4">
-                                    <a href={`https://drive.google.com/uc?export=download&id=${file.id}`} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105 mr-2" target="_blank" rel="noopener noreferrer">Download</a>
-                                    <a href={`https://drive.google.com/file/d/${file.id}/view`} className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" target="_blank" rel="noopener noreferrer">View</a>
+                                <div className="absolute bottom-0 flex gap-2">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white p-2 px-4 rounded-lg"><a href={`https://drive.google.com/uc?export=download&id=${file.id}`}  target="_blank" rel="noopener noreferrer">Download</a></button>
+                                    <button className="bg-green-500 hover:bg-green-700 text-white p-2 px-4 rounded-lg"><a href={`https://drive.google.com/file/d/${file.id}/view`} target="_blank" rel="noopener noreferrer">View</a></button>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
             ) : (
-                <p>The folder is empty.</p>
+                <div className="text-center text-xl text-gray-400">The folder is empty.</div>
             )}
         </div>
     );
