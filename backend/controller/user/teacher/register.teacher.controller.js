@@ -6,6 +6,7 @@ import asyncHandler from 'express-async-handler'
 export const register = asyncHandler(async (req, res) => {
   try {
     const data = req.body;
+    console,log(data)
     const existingUser = await teacherData.findOne({ email: data.email });
     if (existingUser) {
       throw new Error("User Already Exists!");

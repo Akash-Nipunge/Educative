@@ -11,11 +11,16 @@ import AppProvider from './components/context/AppProvider.jsx'
 import SubjectPage from './components/subject/SubjectPage.jsx'
 import FileUpload from './components/FileUpload/UploadFile.jsx'
 import FileViewer from './components/FileUpload/ViewFile.jsx'
-
 import ResultSection from './components/result/Result.jsx'
 import FindStudents from './components/result/FindStudent.jsx'  
 import studentResult from './components/studentResult/StudentResult.jsx'
 import NotFound from './components/PageNotFound.jsx'
+import AdminPage from './admin/AdminPage.jsx'
+import StudentRegistration from './admin/StudentRegistration.jsx'
+
+import StudentFindAndDelete from './admin/StudentFindAndDelete.jsx'
+import TeacherFindAndDelete from './admin/TeacherFindAndDelete.jsx'
+import TeacherRegistration from './admin/TeacherRegistration.jsx'
 
 
 
@@ -34,10 +39,16 @@ function AppRoutes() {
         <Route path='/:user/class/student/search' element={<AppProvider Component={FindStudents}/>}/>
         <Route path='/:user/result/:studentId' element={<AppProvider Component={ResultSection}/>}/>
         <Route path='/:user/result/view/:studentId' element={<AppProvider Component={studentResult}/>}/>
+        </Route>
+        <Route path='/main/admin' element={<AdminPage/>} />
+        <Route path='/admin/student' element={<StudentRegistration/>}/>
+        <Route path='/admin/student/delete' element={<StudentFindAndDelete/>}/>
+        <Route path='/admin/teacher' element={<TeacherRegistration/>}/>
+        <Route path='/admin/teacher/delete' element={<TeacherFindAndDelete/>}/>
         <Route path="*" element={<NotFound/>} />
         
 
-      </Route>
+      
     </Routes>
   );
 }
