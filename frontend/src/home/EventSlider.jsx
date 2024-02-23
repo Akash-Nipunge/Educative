@@ -24,16 +24,20 @@ const EventSlider = () => {
   };
 
   return (
-    <>
-      <h1
-        className="heading text-4xl md:text-5xl lg:text-6xl m-3 text-center text-blue-900 font-bold transition-all duration-300 max-md:text-xl"
-        style={{ fontFamily: "'IBM Plex Serif', serif" }}
+    <div className="py-4 bg-gray-300 bg-opacity-50 font-sans">
+      <div
+        className="text-4xl md:text-5xl lg:text-6xl text-center font-bold transition-all duration-300 max-md:text-xl text-blue-900"
+        style={
+          {
+            WebkitTextStroke : "1px black",
+          }
+        }
       >
         Events
-      </h1>
+      </div>
 
       {Events.length > 0 && (
-        <div className="slider flex justify-center items-center h-96 overflow-x-auto flex-wrap max-sm:h-60">
+        <div className="slider flex justify-center items-center overflow-x-auto flex-wrap max-sm:h-60 mt-8 max-sm:mt-4 mb-10">
           {Events.map((event, index) => (
             <div
               key={index}
@@ -57,7 +61,7 @@ const EventSlider = () => {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

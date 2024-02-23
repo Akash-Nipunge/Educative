@@ -10,7 +10,7 @@ const FileUpload = () => {
   const [contentTitle, setContentTitle] = useState("");
   const { unitId } = useParams();
   const [loading, setLoading] = useState(false);
-
+  const {user} = useParams()
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     const filename = e.target.value.split("\\");
@@ -48,7 +48,7 @@ const FileUpload = () => {
         <CustomSpinner />
       ) : (
         <>
-          <div className="flex flex-col mt-2">
+          {user ==="teacher" && (<div className="flex flex-col mt-2">
             <div className="p-4 text-gray-500 text-xl">{contentTitle}</div>
             <div className="flex gap-2 mx-4">
               <input
@@ -70,7 +70,7 @@ const FileUpload = () => {
                 Upload
               </button>
             </div>
-          </div>
+          </div>)}
           <ViewFilesInFolder />
         </>
       )}

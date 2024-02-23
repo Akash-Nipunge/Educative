@@ -108,7 +108,7 @@ export default function SubjectPage(){
                     <button className="rounded-lg py-4 px-4 bg-violet-900 max-sm:text-sm font-light text-white" id={unit._id} onClick={(e)=>{
                         HandleDeleteUnit(e);
                     }}>Delete</button>
-                    </div> : <button className="rounded-md py-2 px-4 bg-violet-900 max-sm:text-sm">View</button>}
+                    </div> : <button className="rounded-md py-2 px-4 bg-violet-900 max-sm:text-sm" onClick={(e)=>HandleEdit(e)} id={unit._id}>View</button>}
                 </div>
                 </>)}
                 </>}
