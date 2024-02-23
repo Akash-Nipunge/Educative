@@ -4,7 +4,7 @@ import { StudentData } from '../../../model/student.model.js';
 export const deleteStudentByAdmin = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(req.params)
+    //console.log(req.params)
 
     if (!id) {
       throw new Error('Student ID is missing.');

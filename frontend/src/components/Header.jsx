@@ -1,11 +1,12 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigation, useParams } from "react-router-dom";
 export default function Header() {
   const {user} = useParams()
   const location = useLocation()
   function HandleLogOut(){
-    
+      localStorage.removeItem("token")
+      window.location.reload()
   }
-  console.log(location)
+  //console.log(location)
   return (
     <>
       <nav className="max-sm:px-4 lg:px-8 w-full px-18 py-1 sticky top-0 z-50 shadow-md bg-white">

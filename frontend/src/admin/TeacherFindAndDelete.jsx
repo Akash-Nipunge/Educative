@@ -40,7 +40,7 @@ const TeacherFindAndDelete = () => {
       setSearchResult(searchResult.filter((t) => t._id !== teacher._id));
     } catch (error) {
       alert(error.message);
-      console.log(error.message);
+      //console.log(error.message);
     }
   };
 

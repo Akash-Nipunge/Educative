@@ -39,7 +39,7 @@ const StudentRegistration = () => {
         formData
       );
       setLoading(false);
-      console.log("User registered successfully");
+      //console.log("User registered successfully");
       setFormData({
         firstName: '',
         middleName: '',
@@ -47,7 +47,7 @@ const StudentRegistration = () => {
         email: '',
         password: '',
       });
-      console.log(response.data);
+      //console.log(response.data);
     } catch (error) {
       setLoading(false);
       if (error.response) {

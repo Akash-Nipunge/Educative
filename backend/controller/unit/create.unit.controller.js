@@ -6,7 +6,7 @@ export const createNewUnit = asyncHandler(async (req, res) => {
   try {
     const data = req.body;
     const subjectId = req.params.subjectid;
-    console.log("subjectid : ", subjectId);
+    //console.log("subjectid : ", subjectId);
     if (!subjectId) {
       throw new Error("Subject ID is required");
     }

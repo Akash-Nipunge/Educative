@@ -5,9 +5,9 @@ export async function createClassFolder(className, classCode, foldId) {
     // Assuming process.env.FOLDER_ID is properly set
     const folderId = await createFolder(folderName, foldId);
     if (!folderId) {
-      console.log("Class folder is not created");
+      //console.log("Class folder is not created");
     } else {
-      console.log("Class folder is created successfully");
+      //console.log("Class folder is created successfully");
       return folderId;
     }
   } catch (error) {
@@ -21,9 +21,9 @@ export async function createOtherFolder(className, classCode, foldId) {
     // Assuming process.env.FOLDER_ID is properly set
     const folderId = await createFolder(folderName, foldId);
     if (!folderId) {
-      console.log("Class folder is not created");
+      //console.log("Class folder is not created");
     } else {
-      console.log("Class folder is created successfully");
+      //console.log("Class folder is created successfully");
       return folderId;
     }
   } catch (error) {

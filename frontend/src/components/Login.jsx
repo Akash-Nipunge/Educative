@@ -10,7 +10,6 @@ export default function Login() {
   const [loading,setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  // handler to submit data
   async function HandleSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -20,7 +19,7 @@ export default function Login() {
           password,
         })
         .then((res) => {
-          console.log("got the response!!",res)
+          //console.log("got the response!!",res)
           setLoading(false);
           res.data ? localStorage.setItem("token", res.data.token) : null;
           navigate(`/student/class`);
@@ -40,7 +39,7 @@ export default function Login() {
             })
             .catch((err) => {
               setLoading(false);
-              console.log(err)
+              //console.log(err)
               setError(err.response ? err.response.data.message : "something went wrong!");
             });
           })();

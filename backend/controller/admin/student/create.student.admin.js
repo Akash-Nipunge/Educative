@@ -16,7 +16,7 @@ const signupSchema = z.object({
 export const registerStudentByAdmin = asyncHandler(async (req, res) => {
     try {
         const { success, data } = signupSchema.safeParse(req.body);
-        console.log(data)
+        //console.log(data)
         if (!success) {
             throw new Error("Invalid input data");
         }

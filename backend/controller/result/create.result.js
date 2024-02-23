@@ -26,7 +26,7 @@ export const SubmitResult = async (req, res) => {
       existingResult = await existingResult.save();
     }
 
-    console.log(existingResult);
+    //console.log(existingResult);
     res.status(200).json({
       success:true,
       message: "Subjects added to result successfully",

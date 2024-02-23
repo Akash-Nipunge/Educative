@@ -3,6 +3,7 @@ import axios from "axios";
 import { calculateScore, determinePassOrFail } from "./utils";
 import StudentDetails from "./StudentDetails";
 import { useParams } from "react-router-dom";
+import CustomDialog from "../CustomDialog";
 
 const ResultSection = () => {
   const [subjects, setSubjects] = useState([
@@ -13,6 +14,7 @@ const ResultSection = () => {
 
   const [student, setStudent] = useState("");
   const { studentId } = useParams();
+  const [message,setMessage] = useState("")
 
   useEffect(() => {
     const fetchStudent = async () => {
@@ -26,7 +28,7 @@ const ResultSection = () => {
           });
         // setStudent(data.student);
       } catch (error) {
-        console.log("Error :", error.message);
+        //console.log("Error :", error.message);
       }
     };
     fetchStudent();
@@ -85,15 +87,22 @@ const ResultSection = () => {
         "http://localhost:4000/api/v1/class/result/submit",
         { student, subjects }
       );
-      console.log(response.data);
+      setMessage("Result Added Successfully !")
+      setTimeout(() => {
+        setMessage("")
+      }, 1500);
     } catch (error) {
+      setMessage("Error submitting result !")
+      setTimeout(() => {
+        setMessage("")
+      }, 1500);
       console.error("Error submitting result:", error.message);
     }
   };
 
   return (
     <>
-      {/* {student ? <StudentDetails student={student} /> : <></>} */}
+      {message != "" && <CustomDialog message={message}/>}
       <div className="container mx-auto">
         <div class="relative">
           <table class="w-fit text-sm m-auto">

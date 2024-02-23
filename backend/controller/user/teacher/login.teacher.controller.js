@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import asyncHandler from 'express-async-handler'
 export const login = asyncHandler(async (req, res) => {
   try {
-    console.log("teachers login!!!!")
+    //console.log("teachers login!!!!")
     const data = req.body;
     const user = await teacherData.findOne({
       email: data.email,

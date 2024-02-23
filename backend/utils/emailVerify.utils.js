@@ -29,7 +29,7 @@ const sendVerifyMail = asyncHandler(async (name, email, user_id) => {
           console.error("Error sending verification email:", error.message);
           throw new Error("Failed to send verification email");
         }
-        console.log("Verification email sent:", info);
+        //console.log("Verification email sent:", info);
       });
     } catch (error) {
       console.error("Error sending verification email:", error.message);

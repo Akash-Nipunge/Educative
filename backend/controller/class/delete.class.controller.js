@@ -7,13 +7,13 @@ export const deleteClass = asynchandler(async (req, res) => {
       // Assuming Class.deleteOne() triggers pre-delete hooks defined in the schema
   
       const exitsClass = await Class.findOne({ _id: "65b38dba38d3bed6c62bebaf" });
-      console.log(classId);
+      //console.log(classId);
       if (!exitsClass) {
         throw new Error("Class Not Found");
       }
   
       await Class.deleteOne({ _id: classId });
-      console.log("Data is Deleted");
+      //console.log("Data is Deleted");
       res
         .status(204)
         .json({

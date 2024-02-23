@@ -28,14 +28,14 @@ export default function SubjectPage(){
                 res.data.data.length && !selectedSubject && setSelectedSubject(()=>res.data.data[0].subjectName)
             }).catch((err)=>{
                 setLoading(false)
-                console.log(err);
+                //console.log(err);
             })
         })();
         subjectId && (async ()=>{
             await axios.get(`http://localhost:4000/api/v1/class/subject/unit/${subjectId}`).then((res)=>{
                     setUnitData(res.data.data)
                 }).catch((err)=>{
-                    console.log(err)
+                    //console.log(err)
                 })
         })();
     },[subjectId])
@@ -43,10 +43,10 @@ export default function SubjectPage(){
     // deletion of unit 
     async function HandleDeleteUnit(e){
         await axios.delete(`http://localhost:4000/api/v1/class/subject/unit/${subjectId}/delete/${e.target.id}`).then((res)=>{
-            console.log("response : ",res)
+            //console.log("response : ",res)
             
         }).catch((err)=>{
-            console.log("error occured : ",err)
+            //console.log("error occured : ",err)
         })
     }
 
@@ -58,7 +58,7 @@ export default function SubjectPage(){
     }
 
     function HandleEdit(e){
-        console.log("upload")
+        //console.log("upload")
         navigate(`/${user}/class/${e.target.id}/file/upload`);
     }
 
@@ -85,7 +85,7 @@ export default function SubjectPage(){
             </div>
             <div className="w-3/4 px-4 max-sm:w-full max-sm:px-0 text-black">
                 <div className="flex justify-between max-sm:grid max-sm:grid-cols-3 max-sm:gap-2">
-                    <button className="bg-white rounded-lg py-2 px-4  max-sm:text-sm border-x border-y border-violet-500 hover:bg-violet-300">Back</button>
+                    <button className="bg-white rounded-lg py-2 px-4  max-sm:text-sm border-x border-y border-violet-500 hover:bg-violet-300" onClick={()=>navigate(-1)}>Back</button>
                     <button className={`bg-violet-900  rounded-lg hidden max-sm:block px-4 py-2 max-sm:text-sm ${user == 'student' ? "col-span-2" : ""}`} onClick={(e)=>setSelectedSubjectDialog("0")}>Subjects</button>
                     {user === 'teacher' && <button className="bg-white rounded-lg py-2 px-4 max-sm:text-sm border-x border-y border-violet-500 hover:bg-violet-300" onClick={(e)=>{
                         setPositionUnitData("0%");

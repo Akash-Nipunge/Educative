@@ -6,7 +6,7 @@ export default function ViewResult() {
   const { studentId } = useParams();
   const [resultData, setResultData] = useState([]);
   const [student, setStudent] = useState({});
-  console.log("studentid ; ", studentId);
+  //console.log("studentid ; ", studentId);
   useEffect(() => {
     (async () => {
       await axios
@@ -15,10 +15,10 @@ export default function ViewResult() {
         )
         .then((data) => {
           setResultData(data.data.student.subjects);
-          console.log(data.data.student.subjects);
+          //console.log(data.data.student.subjects);
         })
         .catch((err) => {
-          console.log("err");
+          //console.log("err");
         });
     })();
     (async () => {
@@ -28,7 +28,7 @@ export default function ViewResult() {
           setStudent(data.data.student);
         })
         .catch((err) => {
-          console.log("err");
+          //console.log("err");
         });
     })();
   }, []);

@@ -45,7 +45,7 @@ export default function SignUp() {
       setTimeout(() => {
         setMessage("");
       }, 1500);
-      console.log(response.data);
+      //console.log(response.data);
     } catch (error) {
       setLoading(false);
       if (error) {
@@ -82,7 +82,7 @@ export default function SignUp() {
       setTimeout(() => {
         setMessage("");
       }, 1500);
-        console.log("User registered successfully");
+        //console.log("User registered successfully");
       })
       .catch((err) => {
         setLoading(false);

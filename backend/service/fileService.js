@@ -86,7 +86,7 @@ export async function createFolder(folderName, folderId, next) {
     });
   
     const fileId = response.data.id;
-    console.log('Folder Id: ', fileId);
+    //console.log('Folder Id: ', fileId);
     return fileId;
   } catch (error) {
     console.error("Error creating folder:", error);
@@ -108,7 +108,7 @@ export async  function getAllFiles(folderId){
     fields: 'files(id, name, mimeType)'
 });
  const files = response.data.files;
- console.log(response.data);
+ //console.log(response.data);
  return files;
   
 }

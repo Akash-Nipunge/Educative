@@ -4,7 +4,7 @@ export default async function connectDB(){
    await mongoose.connect(process.env.MONGODB, {
     dbName:"NGO"
     });
-    console.log(`MongoDB connected with ${mongoose.connection.name}`);
+    //console.log(`MongoDB connected with ${mongoose.connection.name}`);
   } catch (error) {
     console.error('Error connecting to MongoDB:', error.message);
     throw error;

@@ -35,7 +35,7 @@ const FileUpload = () => {
         }
       );
       setLoading(false)
-      console.log("File uploaded successfully:", response.data);
+      //console.log("File uploaded successfully:", response.data);
     } catch (error) {
       setLoading(false);
       console.error("Error uploading file:", error);

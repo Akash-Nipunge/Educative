@@ -10,7 +10,7 @@ export const deleteUnits = asyncHandler(async (req, res) => {
         throw new Error("Unit not found");
       }
   
-      console.log("Deleted!");
+      //console.log("Deleted!");
   
       await Subject.updateMany(
         { units: deletedUnit._id },

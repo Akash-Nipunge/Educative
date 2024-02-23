@@ -44,7 +44,7 @@ const StudentFindAndDelete = () => {
      } catch (error) {
 
         alert(error.message);
-        console.log(error.message);
+        //console.log(error.message);
         
      }
   }

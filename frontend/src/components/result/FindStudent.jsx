@@ -32,7 +32,7 @@ const FindStudents = () => {
   }, [student]);
 
   const handleNavigate = (student) => {
-    console.log("student : ",student)
+    //console.log("student : ",student)
     navigate(`/teacher/result/${student._id}`);
   };
 

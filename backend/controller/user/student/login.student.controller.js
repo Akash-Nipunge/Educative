@@ -30,7 +30,7 @@ export const login = asyncHandler(async (req, res) => {
       throw new Error("Invalid Username and Password!");
     }
   } catch (error) {
-    console.log("error")
+    //console.log("error")
     return res.status(400).send({
       success: false,
       message: error.message,

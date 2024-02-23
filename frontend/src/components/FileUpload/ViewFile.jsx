@@ -7,14 +7,14 @@ import { useParams } from 'react-router-dom';
 const ViewFilesInFolder = () => {
     const [files, setFiles] = useState([]);
     const { unitId } = useParams();
-    console.log("class id : ",unitId)
+    //console.log("class id : ",unitId)
 
     useEffect(() => {
       const fetchFiles = async () => {
           try {
               const res = await axios.get(`http://localhost:4000/api/v1/class/subject/unit/content/file/gets/${unitId}`);
               setFiles(res.data);
-              console.log(res.data)
+              //console.log(res.data)
           } catch (error) {
               console.error('Error fetching files:', error);
           }

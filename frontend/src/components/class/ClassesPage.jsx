@@ -22,10 +22,10 @@ export default function ClassesPage() {
         setLoading(true);
         const token = localStorage.getItem("token");
         const jwtToken = localStorage.getItem("token");
-        console.log("token : ", token);
+        //console.log("token : ", token);
         axios.defaults.headers.common["Authorization"] = `Bearer ${jwtToken}`;
         const response = await axios.get("http://localhost:4000/api/v1/class");
-        console.log(response.data.classes);
+        //console.log(response.data.classes);
         setClassData(response.data.classes);
         setLoading(false);
       } catch (error) {
@@ -56,7 +56,7 @@ export default function ClassesPage() {
       .then((res) => {
         setAddClassDialog((curr)=>!curr)
         setLoading(false);
-        console.log(res.data.message)
+        //console.log(res.data.message)
         setResponseBox((curr)=>res.data.message);
         setTimeout(() => {
           setResponseBox((curr)=>"");

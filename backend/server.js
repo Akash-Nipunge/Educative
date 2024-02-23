@@ -16,7 +16,7 @@ app.use(helmet());
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-// Define multer storage
+//Define multer storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     let uploadPath = "uploads/";
@@ -62,7 +62,7 @@ app.use("/api/v1/class/result", resultRouter);
 app.use("/api/v1/admin",adminRouter);
 
 app.get("/api/v1", (req, res) => {
-  console.log("App is running fine!!");
+  //console.log("App is running fine!!");
   res.json({ message: "App is running fine...." });
 });
 
@@ -79,11 +79,11 @@ const PORT = process.env.PORT || 3000;
 })()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+      //console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.log("server error");
+    //console.log("server error");
   });
 
 app.use((err, req, res, next) => {

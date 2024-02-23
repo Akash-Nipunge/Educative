@@ -41,7 +41,7 @@ const TeacherRegistration = () => {
         formData
       );
       setLoading(false);
-      console.log("User registered successfully");
+      //console.log("User registered successfully");
       
       setFormData({
         firstName: '',
@@ -52,10 +52,10 @@ const TeacherRegistration = () => {
         password: '',
       });
 
-      console.log(response.data);
+      //console.log(response.data);
     } catch (error) {
       setLoading(false);
-      console.log(error)
+      //console.log(error)
       if (error.response) {
         console.error("Error occurred during registration:", error.response.data);
         alert("User registration failed. Error: " + error.response.data);

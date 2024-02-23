@@ -24,7 +24,7 @@ export const getStudentById = async (req, res) => {
         student,
       });
     } catch (error) {
-      console.log("Error:", error.message);
+      //console.log("Error:", error.message);
       res.status(500).json({
         message: "Internal Server Error",
         success: false,
