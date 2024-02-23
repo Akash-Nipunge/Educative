@@ -61,7 +61,7 @@ app.use("/api/v1/class/subject/unit/content/file", fileRouter);
 app.use("/api/v1/class/result", resultRouter);
 app.use("/api/v1/admin",adminRouter);
 
-app.get("/api/v1", (req, res) => {
+app.get("/", (req, res) => {
   //console.log("App is running fine!!");
   res.json({ message: "App is running fine...." });
 });
@@ -75,7 +75,7 @@ app.use((err, req, res, next) => {
 // Start the server
 const PORT = process.env.PORT || 3000;
 (async () => {
-  // await connectDB();
+  await connectDB();
 })()
   .then(() => {
     app.listen(PORT, () => {
