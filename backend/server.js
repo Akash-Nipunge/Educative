@@ -11,7 +11,13 @@ dotenv.config()
 import { authMiddleware } from './middleware/auth.js';
 const app = express();
 // Middleware
-app.use(cors());
+const corsConfig = {
+  origin:"*",
+  credential:true,
+  methods:["GET","POST","PUT","DELETE"]
+}
+app.options("",cors(corsConfig))
+app.use(cors(corsConfig));
 app.use(helmet());
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
