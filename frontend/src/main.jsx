@@ -29,9 +29,9 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Homepage />} />
+        <Route path='' element={<Homepage />} />
         <Route path="user/login" element={<Login/>} />
-        <Route path="user/register" element={<SignUp/>} />
+        <Route path="/:user/register" element={<SignUp/>} />
         <Route path="/:user/class" element={<AppProvider Component = {ClassesPage} />}/>
         <Route path='/:user/class/:classid' element={<AppProvider Component={SubjectPage}/>}/>
 
@@ -48,9 +48,6 @@ function AppRoutes() {
         <Route path='/admin/teacher' element={<TeacherRegistration/>}/>
         <Route path='/admin/teacher/delete' element={<TeacherFindAndDelete/>}/>
         <Route path="*" element={<NotFound/>} />
-        
-
-      
     </Routes>
   );
 }

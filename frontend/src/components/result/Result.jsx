@@ -17,11 +17,13 @@ const ResultSection = () => {
   useEffect(() => {
     const fetchStudent = async () => {
       try {
-        await axios.get(
-          `http://localhost:4000/api/v1/class/result/get?query=${studentId}`
-        ).then((data)=>{
-          setStudent(data.data.student)
-        })
+        await axios
+          .get(
+            `http://localhost:4000/api/v1/class/result/get?query=${studentId}`
+          )
+          .then((data) => {
+            setStudent(data.data.student);
+          });
         // setStudent(data.student);
       } catch (error) {
         console.log("Error :", error.message);
@@ -75,8 +77,7 @@ const ResultSection = () => {
 
   useEffect(() => {
     handleCalculateResult();
-  }, [subjects]); 
-
+  }, [subjects]);
 
   const handleSubmitResult = async () => {
     try {
@@ -92,27 +93,49 @@ const ResultSection = () => {
 
   return (
     <>
-      {student ? <StudentDetails student={student} /> : <></>}
-      <div className="container mx-auto px-4 py-8">
-        <div className="overflow-x-auto">
-          <table className="w-full mb-8 shadow-md rounded-lg ">
-            <thead>
+      {/* {student ? <StudentDetails student={student} /> : <></>} */}
+      <div className="container mx-auto">
+        <div class="relative">
+          <table class="w-fit text-sm m-auto">
+            {student && <thead>
+              <tr className="p-4">
+                <th>NAME&nbsp;:&nbsp;&nbsp;{student.firstName.toUpperCase()}&nbsp;&nbsp;{student.middleName.toUpperCase()}&nbsp;&nbsp;{student.lastName.toUpperCase()}</th>
+              </tr>
+              <tr className="text-left">
+              <th>ROLL&nbsp;NO&nbsp;:&nbsp;{student.rollNo}</th>
+              </tr>
+            </thead>}
+            <thead class="text-xs uppercase bg-gray-200 text-black">
               <tr>
-                <th className="py-2 text-center font-normal">Sr. No.</th>
-                <th className="py-2 text-center font-normal">Subject Name</th>
-                <th className="py-2 text-center font-normal">Obtained</th>
-                <th className="py-2 text-center font-normal">Total Marks</th>
+                <th scope="col" class="py-3 text-center w-20 max-sm:w-fit max-sm:font-normal max-sm:hidden">
+                  Sr.No
+                </th>
+                <th scope="col" class="py-3 max-sm:font-normal">
+                  subject <span className="max-sm:hidden">name</span>
+                </th>
+                <th scope="col" class="py-3 max-sm:font-normal">
+                  obtained <span className="max-sm:hidden">marks</span>
+                </th>
+                <th scope="col" class="py-3 max-sm:font-normal">
+                  total <span className="max-sm:hidden">marks</span>
+                </th>
               </tr>
             </thead>
             <tbody>
               {subjects.map((subject, index) => (
-                <tr key={index}>
-                  <td className="py-2 text-center">{subject.srNo}</td>
-                  <td className="py-2">
+                <tr class="bg-white border-b text-gray-900 max-sm:px-1">
+                  <th
+                    scope="row"
+                    class="px-6 py-4 font-medium whitespace-nowrap max-sm:hidden"
+                  >
+                    {index + 1}
+                  </th>
+                  <td class="">
                     <input
                       type="text"
-                      className="border border-gray-300 rounded px-2 py-1 w-full"
+                      className="border border-gray-300 rounded p-3 w-96 outline-none max-md:w-64 max-sm:w-full"
                       value={subject.subjectName}
+                      placeholder="Subject Name"
                       onChange={(e) =>
                         handleSubjectChange(
                           index,
@@ -122,10 +145,10 @@ const ResultSection = () => {
                       }
                     />
                   </td>
-                  <td className="py-2">
+                  <td class="px-6 py-4 max-sm:px-2">
                     <input
                       type="number"
-                      className="border border-gray-300 rounded px-2 py-1 w-full"
+                      className="border border-gray-300 rounded p-3 w-28 outline-none max-sm:w-16 m-auto"
                       value={subject.marksObtained}
                       onChange={(e) =>
                         handleSubjectChange(
@@ -136,10 +159,10 @@ const ResultSection = () => {
                       }
                     />
                   </td>
-                  <td className="py-2">
+                  <td class="px-6 py-4 max-sm:px-0">
                     <input
                       type="number"
-                      className="border border-gray-300 rounded px-2 py-1"
+                      className="border border-gray-300 rounded p-3 w-28 outline-none max-sm:w-16 m-auto"
                       value={subject.totalMarks}
                       onChange={(e) =>
                         handleSubjectChange(
@@ -155,39 +178,39 @@ const ResultSection = () => {
             </tbody>
           </table>
         </div>
-        <div className="flex justify-center flex-wrap">
+        <div className="flex justify-center flex-wrap mt-4">
           <button
-            className="bg-blue-500 text-white py-2 px-4 rounded shadow-md mr-2"
+            className="bg-blue-500 text-white py-2 px-4 rounded shadow-md mr-2 max-sm:text-xs max-sm:p-2"
             onClick={handleAddSubject}
           >
             Add Subject
           </button>
           <button
-            className="bg-red-500 text-white py-2 px-4 rounded shadow-md mr-2"
+            className="bg-red-500 text-white py-2 px-4 rounded shadow-md mr-2 max-sm:text-xs max-sm:p-2"
             onClick={handleRemoveSubject}
           >
             Remove Subject
           </button>
           <button
-            className="bg-yellow-500 text-white py-2 px-4 rounded shadow-md mr-2"
+            className="bg-yellow-500 text-white py-2 px-4 rounded shadow-md mr-2 max-sm:text-xs max-sm:p-2"
             onClick={handleClearFields}
           >
             Clear Fields
           </button>
-          <button
+          {/* <button
             className="bg-blue-500 text-white py-2 px-4 rounded shadow-md"
             onClick={handleCalculateResult}
           >
             Calculate Result
-          </button>
+          </button> */}
         </div>
-        <p className="mt-4">Total Score: {totalScore}</p>
-        <p>Result: {passOrFail}</p>
+        {/* <p className="mt-4">Total Score: {totalScore}</p>
+        <p>Result: {passOrFail}</p> */}
       </div>
       <button
         type="submit"
         onClick={handleSubmitResult}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded w-full my-5 max-sm:text-xs"
       >
         Declare result
       </button>

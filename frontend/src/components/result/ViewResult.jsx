@@ -52,25 +52,25 @@ export default function ViewResult() {
             <div className="m-1">ROLL NO : {student.rollNo}</div>
             <div>
             <div className="flex">
-                  <div className="text-center p-1 w-40 border-x border-y m-1">
+                  <div className="text-center p-1 w-40 border-x border-y m-1 max-sm:w-32">
                     SubjectName
                   </div>
-                  <div className="p-1 w-24 text-center border-x border-y m-1">
+                  <div className="p-1 w-24 text-center border-x border-y m-1 max-sm:w-18">
                     Obtained
                   </div>
-                  <div className="p-1  w-24 text-center border-x border-y m-1">
+                  <div className="p-1  w-24 text-center border-x border-y m-1 max-sm:w-18">
                     Total
                   </div>
                 </div>
               {resultData.map((item) => (
                 <div className="flex">
-                  <div className="text-center bg-slate-100 p-4 w-40 border-x border-y border-black m-1">
+                  <div className="text-center bg-slate-100 p-4 w-40 border-x border-y border-black m-1 max-sm:p-2 max-sm:w-32">
                     {item.subjectName.toUpperCase()}
                   </div>
-                  <div className="bg-slate-100 p-4 w-24 text-center border-x border-y border-black m-1">
+                  <div className="bg-slate-100 p-4 w-24 text-center border-x border-y border-black m-1 max-sm:p-2 max-sm:w-18">
                     {item.marksObtained}
                   </div>
-                  <div className="bg-slate-100 p-4 w-24 text-center border-x border-y border-black m-1">
+                  <div className="bg-slate-100 p-4 w-24 text-center border-x border-y border-black m-1 max-sm:p-2 max-sm:w-18">
                     {item.totalMarks}
                   </div>
                 </div>

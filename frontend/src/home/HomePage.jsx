@@ -9,7 +9,7 @@ import FeedbackCard from './FreedbackForm';
 const HomePage = () => {
   return (
     <div>
-      {/* <NavHome /> */}
+      <NavHome />
       <ImageSlider />
       <EventSlider/>
       <Working/>

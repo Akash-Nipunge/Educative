@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import studetnLoginImage from "/images/studentLogin.png";
 import CustomSpinner from "./CustomSpinner.jsx";
 import emailIcon from "/images/emailIcon.png";
+import CustomDialog from "./CustomDialog.jsx";
 
 export default function SignUp() {
   const [firstName, setFirstname] = useState("");
@@ -11,22 +12,19 @@ export default function SignUp() {
   const [lastName, setLastname] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [emailDialogBox, setEmailDialogBox] = useState("-200%");
-  const location = useLocation();
-  // const upload = multer()
-  useEffect(() => {
-    setRole(location.search.split("=")[1]);
-  }, [location]);
+  const { user } = useParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (role === "student") {
+    if (user === "student") {
       await registerStudent();
-    } else if (role === "teacher") {
+      setLoading(false);
+    } else if (user === "teacher") {
       await registerTeacher();
+      setLoading(false);
     }
   };
 
@@ -43,8 +41,10 @@ export default function SignUp() {
         }
       );
       setLoading(false);
-      console.log("User registered successfully");
-      setEmailDialogBox(true);
+      setMessage("User Registered Successfully!");
+      setTimeout(() => {
+        setMessage("");
+      }, 1500);
       console.log(response.data);
     } catch (error) {
       setLoading(false);
@@ -53,10 +53,15 @@ export default function SignUp() {
           "Error occurred during registration:",
           error.response.data
         );
-        alert("User registration failed. Error: " + error.response.data);
+        setMessage("User registration failed. Please try again.");
+        setTimeout(() => {
+          setMessage("");
+        }, 1500);
       } else {
-        console.error("Error occurred during registration:", error.message);
-        alert("User registration failed. Please try again.");
+        setMessage("User registration failed. Please try again.");
+        setTimeout(() => {
+          setMessage("");
+        }, 1500);
       }
     }
   };
@@ -73,16 +78,23 @@ export default function SignUp() {
       })
       .then(() => {
         setLoading(false);
+        setMessage("User Registered Successfully!");
+      setTimeout(() => {
+        setMessage("");
+      }, 1500);
         console.log("User registered successfully");
-        setEmailDialogBox(true);
       })
       .catch((err) => {
         setLoading(false);
-        alert("User Registration Failed. Error: ");
+        setMessage("User registration failed. Please try again.");
+      setTimeout(() => {
+        setMessage("");
+      }, 1500);
       });
   };
   return (
     <>
+      {message != "" ? <CustomDialog message={message} /> : <></>}
       {loading ? (
         <CustomSpinner />
       ) : (
@@ -136,28 +148,11 @@ export default function SignUp() {
                 />
                 <button
                   type="submit"
-                  className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-          focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 bg-gradient-to-r from-green-400 to-blue-500 hover:from-teal-500 hover:to-teal-500 text-white"
+                  className="mt-1 block w-full p-3 border border-slate-300 rounded-md text-sm shadow-sm bg-violet-500 text-white"
                 >
                   Register
                 </button>
               </form>
-            </div>
-            <div
-              className="absolute w-full z-10"
-              style={{ top: emailDialogBox, height: "100%" }}
-            >
-              <div className="w-1/4 left-1/3 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-200  m-auto text-center p-6 rounded-lg max-lg:w-full max-lg:h-full">
-                <img src={emailIcon} alt="" width="100px" className="m-auto" />
-                <h2 className="font-bold text-2xl my-2">
-                  Thank you for registering.
-                </h2>
-                <p>
-                  We're glad you are here Before you start exploring,we just
-                  sent you the email confirmation.
-                </p>
-                <p>Please confirm your email</p>
-              </div>
             </div>
           </div>
         </>

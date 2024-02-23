@@ -9,30 +9,27 @@ const AdminPage = () => {
      const navigate = useNavigate();
 
     const handlerStudent =()=>{
-
-        navigate('/admin/student')
-
+        navigate('/student/register')
     }
     const handlerTeacher =()=>{
-        
-        navigate('/admin/teacher')
+        navigate('/teacher/register')
 
     }
   return (
     <div>
         <AdminNavigation/>
-
-
         < div  className=''>
-        <div className="select-account flex  shadow-md w-fit rounded m-auto self-center  mt-36 justify-center h-52 items-center p-2 pb-6">
-            <div className="student  max-w-36 h-36 mx-4 rounded-lg flex flex-col gap-1  shadow-sm bg-white dark:bg-gray-800">
-                <img src={student} alt="Student Png" onClick={handlerStudent} />
-                <p className='text-center text- font-semibold'>Students</p>
+        <div className="select-account flex  shadow-md w-fit rounded m-auto self-center  mt-36 justify-center  items-center p-2 pb-6">
+            <div className="student  max-w-36 mx-4 rounded-lg flex flex-col  shadow-sm bg-white dark:bg-gray-800">
+                <img src={student} alt="Student Png" className='dark:bg-gray-800'/>
+                <button className='p-3 bg-violet-500 w-36 rounded-md mt-3 text-white' onClick={handlerStudent}>Add Student</button>
+                <button className='p-3 bg-violet-500 w-36 mt-1 rounded-md text-white' onClick={()=>navigate('/admin/teacher/delete')}>Delete Student</button>
             </div>
 
-            <div className="student  max-w-36 h-36 mx-4 rounded-lg flex flex-col gap-1  shadow-sm bg-white dark:bg-gray-800">
+            <div className="student  max-w-36 mx-4 rounded-lg flex flex-col  shadow-sm bg-white dark:bg-gray-800">
                 <img src={teacher} alt="Student Png " onClick={handlerTeacher}/>
-                <p className='text-center text- font-semibold'>Teacher</p>
+                <button className='p-3 bg-violet-500 w-36 rounded-md text-white mt-3' onClick={handlerTeacher}>Add Teacher</button>
+                <button className='p-3 bg-violet-500 w-36 mt-1 rounded-md text-white' onClick={()=>navigate('/admin/student/delete')}>Delete Teacher</button>
             </div>
         </div>
         </div>
