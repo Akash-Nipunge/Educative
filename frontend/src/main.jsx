@@ -30,7 +30,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path='' element={<Homepage />} />
-        <Route path="https://educative-beige.vercel.app/user/login" element={<Login/>} />
+        <Route path="/user/login" element={<Login/>} />
         <Route path="/:user/register" element={<SignUp/>} />
         <Route path="/:user/class" element={<AppProvider Component = {ClassesPage} />}/>
         <Route path='/:user/class/:classid' element={<AppProvider Component={SubjectPage}/>}/>
