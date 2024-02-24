@@ -21,7 +21,7 @@ const ResultSection = () => {
       try {
         await axios
           .get(
-            `http://localhost:4000/api/v1/class/result/get?query=${studentId}`
+            `https://educative-backend.onrender.com/api/v1/class/result/get?query=${studentId}`
           )
           .then((data) => {
             setStudent(data.data.student);
@@ -84,7 +84,7 @@ const ResultSection = () => {
   const handleSubmitResult = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/class/result/submit",
+        "https://educative-backend.onrender.com/api/v1/class/result/submit",
         { student, subjects }
       );
       setMessage("Result Added Successfully !")

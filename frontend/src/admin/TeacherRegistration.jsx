@@ -37,7 +37,7 @@ const TeacherRegistration = () => {
  
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/admin/teacher/register",
+        "https://educative-backend.onrender.com/api/v1/admin/teacher/register",
         formData
       );
       setLoading(false);

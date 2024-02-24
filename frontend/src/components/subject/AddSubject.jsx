@@ -21,7 +21,7 @@ export default function AddSubject({topPosition,setTopPosition,setRefresh}) {
       return;
     }
     ;(async()=>{
-      await axios.post(`http://localhost:4000/api/v1/class/subject/add/${classid}`,{subject}).then((res)=>{
+      await axios.post(`https://educative-backend.onrender.com/api/v1/class/subject/add/${classid}`,{subject}).then((res)=>{
         setLoading(false)
         setResponseBox(res.data.message);
         setTimeout(() => {

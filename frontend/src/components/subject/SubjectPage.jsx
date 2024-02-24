@@ -21,7 +21,7 @@ export default function SubjectPage(){
     useEffect(()=>{
         setLoading(true)
         ;(async()=>{
-            await axios.get(`http://localhost:4000/api/v1/class/subject/${classid}`).then((res)=>{
+            await axios.get(`https://educative-backend.onrender.com/api/v1/class/subject/${classid}`).then((res)=>{
                 setLoading(false)
                 setSubjectsData(res.data.data)
                 res.data.data.length && !subjectId && setSubjectId(()=>res.data.data[0]._id);
@@ -32,7 +32,7 @@ export default function SubjectPage(){
             })
         })();
         subjectId && (async ()=>{
-            await axios.get(`http://localhost:4000/api/v1/class/subject/unit/${subjectId}`).then((res)=>{
+            await axios.get(`https://educative-backend.onrender.com/api/v1/class/subject/unit/${subjectId}`).then((res)=>{
                     setUnitData(res.data.data)
                 }).catch((err)=>{
                     //console.log(err)
@@ -42,7 +42,7 @@ export default function SubjectPage(){
 
     // deletion of unit 
     async function HandleDeleteUnit(e){
-        await axios.delete(`http://localhost:4000/api/v1/class/subject/unit/${subjectId}/delete/${e.target.id}`).then((res)=>{
+        await axios.delete(`https://educative-backend.onrender.com/api/v1/class/subject/unit/${subjectId}/delete/${e.target.id}`).then((res)=>{
             //console.log("response : ",res)
             
         }).catch((err)=>{

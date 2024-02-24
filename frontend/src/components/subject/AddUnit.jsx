@@ -17,7 +17,7 @@ export default function AddUnit({positionUnitData,setPositionUnitData,subjectId}
     e.preventDefault();
     setLoader(true)
     ;(async()=>{
-      await axios.post(`http://localhost:4000/api/v1/class/subject/unit/${subjectId}/add`,{title,description}).then((res)=>{
+      await axios.post(`https://educative-backend.onrender.com/api/v1/class/subject/unit/${subjectId}/add`,{title,description}).then((res)=>{
         setLoader((curr)=>!curr)
         setResponseBox((curr)=>res.data.message)
         setTimeout(() => {

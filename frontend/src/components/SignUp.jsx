@@ -31,7 +31,7 @@ export default function SignUp() {
   const registerStudent = async () => {
     try {
       const { response } = await axios.post(
-        "http://localhost:4000/api/v1/user/student/signup",
+        "https://educative-backend.onrender.com/api/v1/user/student/signup",
         {
           firstName,
           middleName,
@@ -68,7 +68,7 @@ export default function SignUp() {
 
   const registerTeacher = async () => {
     await axios
-      .post("http://localhost:4000/api/v1/user/teacher/signup", {
+      .post("https://educative-backend.onrender.com/api/v1/user/teacher/signup", {
         firstName,
         middleName,
         lastName,

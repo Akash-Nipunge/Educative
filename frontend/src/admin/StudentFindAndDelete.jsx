@@ -15,7 +15,7 @@ const StudentFindAndDelete = () => {
       if (student) {
         try {
           const { data } = await axios.get(
-            `http://localhost:4000/api/v1/admin/students?query=${student}`
+            `https://educative-backend.onrender.com/api/v1/admin/students?query=${student}`
           );
           setSearchResult(data);
           setError(null); 
@@ -36,7 +36,7 @@ const StudentFindAndDelete = () => {
 
   
      try {
-        await axios.delete(`http://localhost:4000/api/v1/admin/students/${student._id}`);
+        await axios.delete(`https://educative-backend.onrender.com/api/v1/admin/students/${student._id}`);
         
         alert('Successfully deleted student');
         window.location.reload();    

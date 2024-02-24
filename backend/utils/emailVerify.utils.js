@@ -17,7 +17,7 @@ const sendVerifyMail = asyncHandler(async (name, email, user_id) => {
         <h1>Welcome to Educative!</h1>
         <h2>Email Verification</h2>
         <p>We're excited to have you onboard. To complete your registration and unlock all the benefits of Educative, please click the button below to verify your email address:</p>
-        <a href="http://localhost:4000/api/v1/user/student/verify?id=${user_id}" class="btn">Verify Email</a>
+        <a href="https://educative-backend.onrender.com/api/v1/user/student/verify?id=${user_id}" class="btn">Verify Email</a>
         <p>If you did not request this verification, please ignore this email.</p>
         </div>
       `,

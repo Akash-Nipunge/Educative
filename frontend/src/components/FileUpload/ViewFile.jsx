@@ -12,7 +12,7 @@ const ViewFilesInFolder = () => {
     useEffect(() => {
       const fetchFiles = async () => {
           try {
-              const res = await axios.get(`http://localhost:4000/api/v1/class/subject/unit/content/file/gets/${unitId}`);
+              const res = await axios.get(`https://educative-backend.onrender.com/api/v1/class/subject/unit/content/file/gets/${unitId}`);
               setFiles(res.data);
               //console.log(res.data)
           } catch (error) {

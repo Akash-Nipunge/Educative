@@ -14,7 +14,7 @@ const FindStudents = () => {
       if (student) {
         try {
           const { data } = await axios.get(
-            `http://localhost:4000/api/v1/class/result/search?query=${student}`
+            `https://educative-backend.onrender.com/api/v1/class/result/search?query=${student}`
           );
           setSearchResult(data);
           setError(null);

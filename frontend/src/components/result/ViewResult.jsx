@@ -11,7 +11,7 @@ export default function ViewResult() {
     (async () => {
       await axios
         .get(
-          `http://localhost:4000/api/v1/class/result/view?query=${studentId}`
+          `https://educative-backend.onrender.com/api/v1/class/result/view?query=${studentId}`
         )
         .then((data) => {
           setResultData(data.data.student.subjects);
@@ -23,7 +23,7 @@ export default function ViewResult() {
     })();
     (async () => {
       await axios
-        .get(`http://localhost:4000/api/v1/class/result/get?query=${studentId}`)
+        .get(`https://educative-backend.onrender.com/api/v1/class/result/get?query=${studentId}`)
         .then((data) => {
           setStudent(data.data.student);
         })

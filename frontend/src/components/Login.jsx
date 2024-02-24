@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
       await axios
-        .post("http://localhost:4000/api/v1/user/student/signin", {
+        .post("https://educative-backend.onrender.com/api/v1/user/student/signin", {
           email,
           password,
         })
@@ -28,7 +28,7 @@ export default function Login() {
         .catch((err) => {
           (async ()=>{
             await axios
-            .post("http://localhost:4000/api/v1/user/teacher/signin", {
+            .post("https://educative-backend.onrender.com/api/v1/user/teacher/signin", {
               email,
               password,
             })

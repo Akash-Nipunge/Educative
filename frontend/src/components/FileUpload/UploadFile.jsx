@@ -26,7 +26,7 @@ const FileUpload = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/v1/class/subject/unit/content/file/upload/${unitId}`,
+        `https://educative-backend.onrender.com/api/v1/class/subject/unit/content/file/upload/${unitId}`,
         formData,
         {
           headers: {

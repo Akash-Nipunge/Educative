@@ -16,7 +16,7 @@ const TeacherFindAndDelete = () => {
       if (teacher) {
         try {
           const { data } = await axios.get(
-            `http://localhost:4000/api/v1/admin/teachers?query=${teacher}`
+            `https://educative-backend.onrender.com/api/v1/admin/teachers?query=${teacher}`
           );
           setSearchResult(data);
           setError(null);
@@ -35,7 +35,7 @@ const TeacherFindAndDelete = () => {
 
   const handleDeleteTeacher = async (teacher) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/admin/teachers/${teacher._id}`);
+      await axios.delete(`https://educative-backend.onrender.com/api/v1/admin/teachers/${teacher._id}`);
       alert('Successfully deleted teacher');
       setSearchResult(searchResult.filter((t) => t._id !== teacher._id));
     } catch (error) {
