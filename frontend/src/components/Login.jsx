@@ -35,6 +35,9 @@ export default function Login() {
             .then((res) => {
               setLoading(false);
               res.data ? localStorage.setItem("token", res.data.token) : null;
+              if(res.data.role == 'admin')
+              navigate('/main/admin')
+              else
               navigate(`/teacher/class`);
             })
             .catch((err) => {
