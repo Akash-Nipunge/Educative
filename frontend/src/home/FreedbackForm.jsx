@@ -40,7 +40,7 @@ const FeedbackCard = () => {
   const { src: userImage, message: feedbackMessage, name: userName } = userData[currentIndex];
 
   return (
-    <div className='mb-10 relative overflow-hidden'>
+    <div className='mb-10 relative overflow-hidden' id="feedback">
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500 to-purple-500 transform -skew-y-6 z-0"></div>
       <div className="relative z-10 flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 p-6 flex items-center justify-center">
