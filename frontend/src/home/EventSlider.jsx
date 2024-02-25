@@ -24,7 +24,7 @@ const EventSlider = () => {
   };
 
   return (
-    <div className="py-4 bg-gray-300 bg-opacity-50 font-sans">
+    <div className="py-4 bg-gray-300 bg-opacity-50 font-sans" id="events">
       <div
         className="text-4xl md:text-5xl lg:text-6xl text-center font-bold transition-all duration-300 max-md:text-xl text-blue-900"
         style={
