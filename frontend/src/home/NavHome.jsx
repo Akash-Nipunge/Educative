@@ -34,7 +34,7 @@ const NavHome = () => {
         <FontAwesomeIcon icon={faTimes} size="lg" />
       </button>
       <ul className='flex flex-col items-start p-4'>
-        <li className='text-gray-800 py-2'><a href='#home'>Home</a></li>
+        <li className='text-gray-800 py-2'><a href=''>Home</a></li>
         <li className='text-gray-800 py-2'><a href='#events'>Events</a></li>
         <li className='text-gray-800 py-2'><a href='#work'>Work</a></li>
         <li className='text-gray-800 py-2'><a href='#feedback'>Feedback</a></li>
