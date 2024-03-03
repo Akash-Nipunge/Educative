@@ -8,7 +8,7 @@ export default function ClassCard({ classItem, user }) {
   }
   return (
     <div
-      className="border-x border-y rounded-lg border-violet-500 relative z-50 overflow-hidden"
+      className="border-x border-y rounded-lg border-violet-500 relative z-10 overflow-hidden"
     >
       <div
         key={classItem.className}
