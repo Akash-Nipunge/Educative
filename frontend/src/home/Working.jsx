@@ -27,7 +27,7 @@ const Working = () => {
     },
   ];
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-14 py-4 bg-opacity-50 font-sans">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-14 py-4 bg-opacity-50 font-sans" id = "work">
       {" "}
       <h1
         className="text-4xl md:text-5xl lg:text-6xl text-center font-bold transition-all duration-300 max-md:text-xl text-blue-900"
