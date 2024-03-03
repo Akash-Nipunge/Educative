@@ -39,11 +39,6 @@ const NavHome = () => {
         <li className='text-gray-800 py-2'><a href='#'>Services</a></li>
         <li className='text-gray-800 py-2'><a href='#'>Contact</a></li>
         <button className="w-full bg-green-500 p-2 rounded-md"><a href='https://educative-beige.vercel.app/user/login'>Login</a></button>
-        <li className='text-gray-800 py-2'><a href=''>Home</a></li>
-        <li className='text-gray-800 py-2'><a href='#events'>Events</a></li>
-        <li className='text-gray-800 py-2'><a href='#work'>Work</a></li>
-        <li className='text-gray-800 py-2'><a href='#feedback'>Feedback</a></li>
-        <button className="w-full bg-green-500 p-2 rounded-md"><a href='https://educative-beige.vercel.app/user/login'>Login</a></button>
       </ul>
     </div>
   </div>
