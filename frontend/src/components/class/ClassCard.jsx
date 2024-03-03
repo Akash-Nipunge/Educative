@@ -23,7 +23,7 @@ export default function ClassCard({ classItem, user }) {
             {classItem.classTeacher}
           </div>
           <div
-            className="text-7xl max-xl:text-5xl z-50"
+            className="text-7xl max-xl:text-5xl z-20"
             style={{
               fontWeight: 1000,
               WebkitTextStroke: "1px black",
