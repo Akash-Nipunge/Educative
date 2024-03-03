@@ -34,19 +34,16 @@ const NavHome = () => {
         <FontAwesomeIcon icon={faTimes} size="lg" />
       </button>
       <ul className='flex flex-col items-start p-4'>
-<<<<<<< HEAD
         <li className='text-gray-800 py-2'><a href='#'>Home</a></li>
         <li className='text-gray-800 py-2'><a href='#'>About</a></li>
         <li className='text-gray-800 py-2'><a href='#'>Services</a></li>
         <li className='text-gray-800 py-2'><a href='#'>Contact</a></li>
         <button className="w-full bg-green-500 p-2 rounded-md"><a href='http://localhost:5173/user/login'>Login</a></button>
-=======
         <li className='text-gray-800 py-2'><a href=''>Home</a></li>
         <li className='text-gray-800 py-2'><a href='#events'>Events</a></li>
         <li className='text-gray-800 py-2'><a href='#work'>Work</a></li>
         <li className='text-gray-800 py-2'><a href='#feedback'>Feedback</a></li>
         <button className="w-full bg-green-500 p-2 rounded-md"><a href='https://educative-beige.vercel.app/user/login'>Login</a></button>
->>>>>>> 16ffe5e8aa967caa6e7842430b30fe05b813f60e
       </ul>
     </div>
   </div>
