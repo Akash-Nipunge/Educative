@@ -28,7 +28,7 @@ export default function Header() {
               <Link to="/user/login">Login</Link>
             </button> 
           </div> : <> <div className="flex gap-1 items-center cursor-pointer" onClick={(e)=>setMenu((curr)=>!curr)}>{name.toUpperCase()} <VscTriangleDown/></div>
-          {menu && <div className="flex gap-2 max-sm:gap-3 absolute right-0 bg-gray-600 p-4 top-full px-8 rounded-md z-50">
+          {menu && <div className="flex gap-2 max-sm:gap-3 absolute right-0 bg-gray-600 p-4 top-full px-8 rounded-md z-50" style={{z-index:100}}>
             <button className="px-3 py-2 rounded-lg border-transparent text-white text-base bg-violet-900 hover:bg-violet-950 max-sm:py-2 max-sm:px-2 max-sm:text-sm">
               <Link to={`/${user}/class/student/search`+location.search}>result</Link>
             </button> 
