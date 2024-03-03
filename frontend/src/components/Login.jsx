@@ -22,6 +22,7 @@ export default function Login() {
           //console.log("got the response!!",res)
           setLoading(false);
           res.data ? localStorage.setItem("token", res.data.token) : null;
+          res.data ? localStorage.setItem("name",res.data.firstName + " " + res.data.lastName) : null;
           navigate(`/student/class`);
           return;
         })
@@ -35,6 +36,8 @@ export default function Login() {
             .then((res) => {
               setLoading(false);
               res.data ? localStorage.setItem("token", res.data.token) : null;
+              res.data ? localStorage.setItem("name",res.data.firstName + " " + res.data.lastName) : null;
+              console.log("data : ",res.data)
               if(res.data.role == 'admin')
               navigate('/main/admin')
               else
