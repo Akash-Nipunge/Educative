@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import e1 from "./events/e1.jpg";
-import e2 from "./events/e2.jpg";
-import e3 from "./events/e3.jpg";
-import e4 from "./events/e4.jpg";
+import e1 from "./events/6.jpeg";
+import e2 from "./events/3.jpg";
+import e3 from "./events/photo-101.jpeg";
+import e4 from "./events/4.jpg";
 
 const EventSlider = () => {
   const Events = [
