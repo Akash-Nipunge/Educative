@@ -1,8 +1,8 @@
 import React from "react";
-import image1 from "./works/edu.jpg";
-import image2 from "./works/food.jpg";
-import image3 from "./works/med.jpg";
-import image4 from "./works/plt.jpg";
+import image1 from "./New folder/1.jpg";
+import image2 from "./New folder/photo-63.jpeg";
+import image3 from "./New folder/photo-94.jpeg";
+import image4 from "./New folder/5.jpg";
 const Working = () => {
   const works = [
     {
