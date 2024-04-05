@@ -3,21 +3,18 @@ import img1 from './users/user1.jpg';
 import img2 from './users/user2.jpg';
 import img3 from './users/user3.jpg'; // Import additional user images
 import img4 from './users/user4.jpg';
-import img5 from './users/user5.jpg';
-import img6 from './users/user3.jpg';
-import img7 from './users/user1.jpg';
-import img8 from './users/user2.jpg';
+
 
 const FeedbackCard = () => {
   const [userData, setUserData] = useState([
-    { src: img1, message: "Thank you sincerely for your generous donation towards education. Your support is invaluable and greatly appreciated.", name: "User 1" },
-    { src: img2, message: "Thank you sincerely for your generous donation towards education. Your support is invaluable and greatly appreciated.", name: "User 2" },
-    { src: img3, message: "Your feedback helps us improve our services. Thank you for taking the time to share your thoughts with us.", name: "User 3" },
-    { src: img4, message: "We're thrilled to hear that you enjoyed our product! Thank you for your positive feedback.", name: "User 4" },
-    { src: img5, message: "Your support means the world to us. Thank you for being an amazing part of our community.", name: "User 5" },
-    { src: img6, message: "We appreciate your feedback and are committed to making improvements based on your suggestions. Thank you!", name: "User 6" },
-    { src: img7, message: "Thank you for your continued support and valuable feedback. We couldn't do it without you!", name: "User 7" },
-    { src: img8, message: "Your feedback inspires us to keep pushing forward and delivering the best experience possible. Thank you!", name: "User 8" },
+    { src: img1, message: "Swaroopwadhini NGO has been a beacon of hope for underprivileged students seeking education.  Attending their guest lectures was an enriching experience", name: "Ajay Raykar" },
+    { src: img2, message: "As a volunteer at Swaroopwadhini, I've witnessed firsthand the positive impact they have on the community. Their dedication to providing free education is commendable.", name: "Savata Salunkhe" },
+    { src: img3, message: "I've had the opportunity to participate in their events and interact with the students they serve. The organization's commitment to fostering a supportive learning environment is evident, making it a fulfilling experience for both volunteers and beneficiaries.", name: "Pranav Kupate" },
+    { src: img4, message: "Swaroopwadhini's impact extends beyond education; it empowers students to dream big and pursue their aspirations. I appreciate the user-centric approach they take in designing their programs", name: "Akshay Thokare" },
+    // { src: img5, message: "Your support means the world to us. Thank you for being an amazing part of our community.", name: "User 5" },
+    // { src: img6, message: "We appreciate your feedback and are committed to making improvements based on your suggestions. Thank you!", name: "User 6" },
+    // { src: img7, message: "Thank you for your continued support and valuable feedback. We couldn't do it without you!", name: "User 7" },
+    // { src: img8, message: "Your feedback inspires us to keep pushing forward and delivering the best experience possible. Thank you!", name: "User 8" },
   ]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
