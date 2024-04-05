@@ -8,22 +8,22 @@ const Working = () => {
     {
       src: image1,
       title: "Education",
-      Desc: "Education is the key to unlock a world of opportunities, empowering individuals to shape their future and contribute meaningfully to society.  ",
+      Desc: "Our organization prioritizes education as a cornerstone of empowerment and progress. Through various programs, initiatives, and partnerships, we strive to provide accessible and quality education to individuals of all ages and backgrounds.",
     },
     {
       src: image2,
-      title: "Food",
-      Desc: "Food nourishes both body and soul, uniting cultures and sparking joy through its diverse flavors and aromas.",
+      title: "Unity",
+      Desc: "Unity lies at the heart of our organization's ethos. We are dedicated to fostering a sense of belonging and cohesion among our members, stakeholders, and the communities we serve.",
     },
     {
       src: image3,
-      title: "Medical",
-      Desc: "Supporting medical NGOs saves lives and brings hope to those in need, providing vital healthcare services and resources to underserved communities worldwide. ",
+      title: "Culture",
+      Desc: "Our organization values and celebrates diverse cultural expressions, traditions, and heritage. We recognize the importance of preserving and promoting cultural identity as a source of pride and resilience within communities.",
     },
     {
       src: image4,
-      title: "Tree Plant",
-      Desc: "Planting trees is a simple yet powerful act that revitalizes our planet, mitigating climate change and preserving biodiversity for future generations. ",
+      title: "Social Engagement",
+      Desc: "Social engagement is integral to our mission of creating positive impact and driving meaningful change.",
     },
   ];
   return (

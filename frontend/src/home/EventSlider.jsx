@@ -7,10 +7,10 @@ import e4 from "./events/4.jpg";
 
 const EventSlider = () => {
   const Events = [
-    { src: e1, text: "Event 1" },
-    { src: e2, text: "Event 2" },
-    { src: e3, text: "Event 3" },
-    { src: e4, text: "Event 4" },
+    { src: e1, text: "Ganesh Jayanti Celebration" },
+    { src: e2, text: "Street Play" },
+    { src: e3, text: "Shiv Jayanti Celebration" },
+    { src: e4, text: "Parent Teacher Meet Up's" },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
